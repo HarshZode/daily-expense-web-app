@@ -7,6 +7,10 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { TodoWebAppComponent } from './todo-web-app/todo-web-app.component';
 import { DailyExpenseAppComponent } from './daily-expense-app/daily-expense-app.component';
+import { AddMoneyComponent } from './add-money/add-money.component';
+import { LogExpenseComponent } from './log-expense/log-expense.component';
+import { AddMoneyFormComponent } from './add-money-form/add-money-form.component';
+import { LogExpenseFormComponent } from './log-expense-form/log-expense-form.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,11 @@ import { DailyExpenseAppComponent } from './daily-expense-app/daily-expense-app.
     NavBarComponent,
     HomeComponent,
     TodoWebAppComponent,
-    DailyExpenseAppComponent
+    DailyExpenseAppComponent,
+    AddMoneyComponent,
+    LogExpenseComponent,
+    AddMoneyFormComponent,
+    LogExpenseFormComponent
   ],
   imports: [
     BrowserModule,

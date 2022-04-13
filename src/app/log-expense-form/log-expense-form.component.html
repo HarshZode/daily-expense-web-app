@@ -1,0 +1,14 @@
+<form (ngSubmit)="OnSubmit()" >
+    <div class="form-group my-3" >
+      <h3>Description</h3>
+      <input class="w-75"placeholder="Ice-cream?" name="added_money" id="added_money" >
+      <!--  [(ngModel)] ="added_money"  -->
+    </div>
+    <div class="form-group my-3">
+      <label for="exampleInputPassword1" class="d-block">Add amount spent</label>
+      <input class="w-75" placeholder="" name="desc" id="desc">
+      <!-- [(ngModel)] ="desc" -->
+    </div>
+    
+    <button type="submit" class="btn btn-primary ">Submit</button>
+  </form>

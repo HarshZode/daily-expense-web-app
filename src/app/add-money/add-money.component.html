@@ -1,0 +1,8 @@
+<button style="margin-left:10px; margin-right:10px;" class="btn btn-primary" (click)="OnAddClick()">add money</button>
+<button style="margin-left:10px; margin-right:10px;" class="btn btn-primary" (click)="OnLogClick()">Log Expense</button>
+<ng-template [ngIf]="this.btn_add === true">
+    <app-add-money-form></app-add-money-form>
+</ng-template>
+<ng-template [ngIf]="this.btn_log === true">
+    <app-log-expense-form></app-log-expense-form>
+</ng-template>
