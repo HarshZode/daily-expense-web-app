@@ -1,25 +1,62 @@
 <body>
     <div class="row" style="margin:10px;">
-        <!-- <div class="col align-self-end " >
-            <span class="float-right h2 font-weight-normal align-top" style=" align-content:flex-end;  border: 2px; border-style: solid; border-radius: 15px; border-color: black; padding:20px; background-color: rgba(255, 255, 255, 0.521); align-items: right; margin-right:5px; padding-left: 30px; padding-right: 30px;">
-            8:23
-            </span>
-      
-        </div> -->
         <div class="col">
             <div class="row">
                 <div class="col " style="text-align: right;">
-                  <p class=" font-weight-normal"  style=" font-size:  75px; color: rgb(255, 175, 2);">7582</p>
+                  <p class=" font-weight-normal"  style=" font-size:  75px; color: rgb(255, 175, 2);">{{budget | number}}</p>
                   <h5 class=" font-weight-light">Budget</h5>
                 </div>
                 <div class="col">
-                    <p class=" font-weight-normal"  style="font-size:  75px; color: rgb(16, 206, 57);">7582</p>
+                    <p class=" font-weight-normal"  style="font-size:  75px; color: rgb(16, 206, 57);">{{available | number}}</p>
                     <h5 class=" font-weight-light">Available</h5>
                 </div>
                 
               </div>
         </div> 
-       
+        
     </div>
 
+    
+        <div  style="display:flex; justify-content: center; ">
+           <div style="margin-top:30px; margin-bottom:30px; " >
+            <div class="row">
+
+                <div class="col">
+                    
+                    <button class="btn btn-primary" style="" (click)="on_newbudget()">New Budget</button>
+                </div>
+                <!-- <div class="col">
+                    
+                    <button class="btn btn-primary" style="" (click)="on_addmoney()">Add Money</button>
+                </div> -->
+                <div class="col">
+                    
+                    <button class="btn btn-primary" (click)="on_logexpense()" style="width: 120px;" >Log Expense</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+                <div class="container-fluid" style="margin-bottom:20px;">
+                    <div *ngIf="btn_newbudget==true">
+                     <app-add-money-form [budget]="budget" (New_budget)="updateBudget($event)"  style=" vertical-align: top; "></app-add-money-form>
+                    </div>
+                    <div *ngIf="btn_logexpense==true">
+                        <app-log-expense-form [available]="available" (new_available)="updateavailable($event)" ></app-log-expense-form>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+       
+   
+   
+
+    
 </body>

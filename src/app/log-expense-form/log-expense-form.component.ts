@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-log-expense-form',
@@ -7,14 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogExpenseFormComponent implements OnInit {
 
-  spent_money: number =0;
+  @Input() available:number
+  
+  @Output() new_available:EventEmitter<number> =  new EventEmitter();
+  amount_spent!: number 
 
-  OnSubmit(){
-    this.spent_money=0;
+
+  OnSubmit(amount_spent:number){
+    console.log(this.amount_spent);
+    this.amount_spent=this.available-this.amount_spent;
+    this.new_available.emit(this.amount_spent)
     console.log("Log Expense was clicked")
+    console.log(this.amount_spent); 
   }
 
-  constructor() { }
+  constructor() {
+
+    this.available=100;
+   this.amount_spent!;
+
+   }
 
   ngOnInit(): void {
   }

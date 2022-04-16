@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Budget } from './../budget';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 // import { Budget } from '../budget';
 import { FormStyle } from '@angular/common';
 
@@ -8,16 +9,31 @@ import { FormStyle } from '@angular/common';
   styleUrls: ['./add-money-form.component.css']
 })
 export class AddMoneyFormComponent implements OnInit {
-  added_money: number =0;
- 
-   
-  OnSubmit(){
-    
-    this.added_money=this.added_money
-    console.log("I was clicked");
+  
+  @Input() budget:number 
+
+  @Output() New_budget: EventEmitter<number> = new EventEmitter();
+  
+
+  new_amount!: number;
+  
+  display(){
+    console.log(this.budget);
   }
 
-  constructor() { }
+
+  budgetSubmit(new_amount:number){
+    this.budget = this.new_amount
+    this.New_budget.emit(this.budget);
+    console.log(this.budget);
+  }
+
+  constructor() { 
+
+    this.budget = 100;
+   
+
+  }
 
   ngOnInit(): void {
   }
