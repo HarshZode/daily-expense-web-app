@@ -52,6 +52,7 @@ export class DailyExpenseAppComponent implements OnInit {
     this.budget=new_number;
     this.available=this.budget;
     console.log(this.budget);
+    this.btn_newbudget=false;
   }
 
   updateavailable(new_available :number){
