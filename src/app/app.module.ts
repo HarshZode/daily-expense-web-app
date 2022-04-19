@@ -15,6 +15,7 @@ import { FormsModule }   from '@angular/forms';
 import { TodoListContainerComponent } from './todos/todo-list-container/todo-list-container.component';
 import { AddTodoFormComponent } from './todos/add-todo-form/add-todo-form.component';
 import { TodoTaskContainerComponent } from './todos/todo-task-container/todo-task-container.component';
+import { AboutHomeComponent } from './about-home/about-home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TodoTaskContainerComponent } from './todos/todo-task-container/todo-tas
     LogExpenseFormComponent,
     TodoListContainerComponent,
     AddTodoFormComponent,
-    TodoTaskContainerComponent
+    TodoTaskContainerComponent,
+    AboutHomeComponent
   ],
   imports: [
     BrowserModule,

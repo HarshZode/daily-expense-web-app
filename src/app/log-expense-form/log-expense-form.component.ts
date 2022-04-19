@@ -12,7 +12,7 @@ export class LogExpenseFormComponent implements OnInit {
   
   @Output() new_available:EventEmitter<number> =  new EventEmitter();
   amount_spent!: number 
-
+ 
 
   OnSubmit(amount_spent:number){
     console.log(this.amount_spent);
@@ -26,6 +26,7 @@ export class LogExpenseFormComponent implements OnInit {
 
     this.available=100;
    this.amount_spent!;
+
 
    }
 

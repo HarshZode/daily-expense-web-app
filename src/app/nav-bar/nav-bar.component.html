@@ -1,14 +1,48 @@
 
 
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark" style="padding: 5px;">
+<nav class=" " style="padding: 10px;">
     
     
     <div >
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#" routerLink="/home" routerLinkActive="active">Home <span class="sr-only"></span></a>
-        <a class="nav-item nav-link" href="#" routerLink="/todo" routerLinkActive="active">Todo List</a>
-        <a class="nav-item nav-link" href="#" routerLink="/daily-expense-app" routerLinkActive="active">Daily Expense</a>
+      <ul >
         
-      </div>
+        <div class="col" style="display:inline;">
+
+          <a class="nav-item nav-link active " style="color: white; display: inline;" href="#" routerLink="/home" routerLinkActive="active" >Home <span class="sr-only"></span></a>
+          <a class="nav-item nav-link" style="color: white; display: inline;" href="#" routerLink="/todo" routerLinkActive="active">Todo List</a>
+        </div>
+        
+       
+       
+        <div class="col" style="display:inline;">
+          <a class="nav-item nav-link" style="color: white; display: inline-block; flex:1; text-align: right;" href="#" routerLink="/daily-expense-app" routerLinkActive="active">Daily Expense</a>
+
+        </div>
+        
+
+        
+      </ul>
     </div>
   </nav>
+<!-- 
+  <nav style="width:100vw; background-color:black">
+    <div class="row" style="padding-top:20px;">
+      <div class="col">
+        <button class="navbar-btn" style="margin-left: 50px; " href="#" routerLink="/home" routerLinkActive="active">
+          <span style="text-align: center; padding: 14px;">Home</span>
+        </button>
+      </div>
+      <div class="col d-flex  flex-row-reverse">
+
+        <button class="navbar-btn " href="#" routerLink="/todo" routerLinkActive="active">
+          <span style="text-align: center; padding: 14px;">Todo List</span>
+        </button>
+
+        <button class="navbar-btn " style="margin-right:10px;"  href="#" routerLink="/daily-expense-app" routerLinkActive="active">
+          <span style="text-align: center; padding: 14px;">Daily Expense</span>
+        </button>
+        
+      </div>
+
+    </div>
+  </nav> -->
