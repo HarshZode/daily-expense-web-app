@@ -16,15 +16,34 @@ import { Todo } from 'src/app/Todo-item';
 export class TodoTaskContainerComponent implements OnInit {
 
   @Input() todo!: Todo[];
+  @Input() x!:number;
   @Output() todoDelete : EventEmitter<Todo> = new EventEmitter();
   @Output() todoDone : EventEmitter<Todo> = new EventEmitter();
 
   task!: string;
+  temp!:Todo;
+  on_up(todo:Todo,numb:number){
+   
+    console.log(this.todo[numb]);
+    this.temp = this.todo[numb]
+    this.todo[numb]=this.todo[numb-1]
+    this.todo[numb-1]=this.temp
+    localStorage.setItem("todos", JSON.stringify(this.todo))
+  }
 
+  on_down(todo:Todo,numb:number){
+   
+    console.log(this.todo[numb]);
+    this.temp = this.todo[numb]
+    this.todo[numb]=this.todo[numb+1]
+    this.todo[numb+1]=this.temp
+    localStorage.setItem("todos", JSON.stringify(this.todo))
+  }
   
   onDone(todo:Todo){
     console.log(todo);
     this.todoDone.emit(todo);
+    console.log(this.x);
   }
 
   OnDelete(todo:Todo){

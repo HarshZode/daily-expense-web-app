@@ -1,22 +1,28 @@
 <h1 class="my-2">Your Tasks</h1>
 <div >
-<ng-template [ngIf]="this.todo.length ===0"  ><div style="padding-bottom: 138px;">No Todos to Display</div></ng-template>
+<ng-template [ngIf]="this.todo.length ===0"  >
+    <div style="padding-bottom: 138px;">No Todos to Display</div>
+</ng-template>
 
 
 <div *ngIf="this.todo.length ===1; else elseBlock" >
 
 
-    <div *ngFor="let todo of todo" >
+    <div *ngFor="let todo of todo;let indexOfelement=index; " >
         <div class="d-inline"  >
             <div style="padding-bottom: 108px;">
                 <div class="row container-fluid  todo-sections" >
-                    <div class="col-12 col-md-9 ">
-                        <div class=" d-inline">
-                            <h2 [ngClass]="{'strike':todo.active}">{{todo.title}}</h2>
+                    <div class="col-sm-1" style="padding-top:23px">
+                       
+                    </div>
+                    <div class=" col-md"  >
+                        <div class=" d-inline" >
+                            <h2 [ngClass]="{'strike':todo.active}" >{{todo.title}}</h2>
                             <h5 [ngClass]="{'strike':todo.active}" >{{todo.desc}} </h5>
+                            
                         </div>
                     </div>
-                    <div class="col-6 col-sm px-4  ">
+                    <div class="col-1 col-sm-3 d-flex align-items-center" >
                         <button [ngClass]="{'success':todo.active,'pending':!todo.active}" class="btn align-center " style="margin-left:5px; margin-top:8px; margin-right:5px; margin-bottom: 5px;" (click)="onDone(todo)">Done</button>
                         <button class="btn btn-danger "  style="margin-left:5px; margin-top:8px; margin-right:5px; margin-bottom: 5px;" (click)="OnDelete(todo)">delete</button>
                     </div>
@@ -27,17 +33,42 @@
 
 </div>
 <ng-template #elseBlock>
-    <div *ngFor="let todo of todo" >
+    <div *ngFor="let todo of todo;let indexOfelement=index" >
         <div class="d-inline"  >
             <div style="padding-bottom:23px;">
             <div class="row container-fluid  todo-sections" >
-                <div class="col-12 col-md-9 ">
-                    <div class=" d-inline">
-                        <h2 [ngClass]="{'strike':todo.active}">{{todo.title}}</h2>
+                <div class="col-sm-1 d-flex align-items-center" >
+                    
+                    <ng-template [ngIf]=""></ng-template>
+                    <div *ngIf="indexOfelement===0;  else fir">
+                        <i class="fa-solid fa-arrow-down"  (click)="on_down(todo,indexOfelement)" style="margin-top: 20px;" ></i>
+                    </div>
+                    
+                    <ng-template #fir>
+                        <ng-template [ngIf]="">
+                        </ng-template>
+                        <div *ngIf="indexOfelement!=x; else ye">
+                            <i class="fa-solid fa-arrow-up" (click)="on_up(todo,indexOfelement)"></i>
+                            <br>
+                            <i class="fa-solid fa-arrow-down" (click)="on_down(todo,indexOfelement)"></i>
+                        </div>
+                        <ng-template #ye >
+                            <i class="fa-solid fa-arrow-up" (click)="on_up(todo,indexOfelement)"></i>
+                        </ng-template>
+                        
+                    </ng-template>
+
+
+
+                </div>
+                <div class=" col-md " >
+                    <div class=" d-inline" >
+                        <h2 [ngClass]="{'strike':todo.active}" >{{todo.title}}</h2>
                         <h5 [ngClass]="{'strike':todo.active}" >{{todo.desc}} </h5>
+                        
                     </div>
                 </div>
-                <div class="col-6 col-sm px-4  ">
+                <div class="col-1 col-sm-3 d-flex align-items-center" >
                     <button [ngClass]="{'success':todo.active,'pending':!todo.active}" class="btn align-center " style="margin-left:5px; margin-top:8px; margin-right:5px; margin-bottom: 5px;" (click)="onDone(todo)">Done</button>
                     <button class="btn btn-danger "  style="margin-left:5px; margin-top:8px; margin-right:5px; margin-bottom: 5px;" (click)="OnDelete(todo)">delete</button>
                 </div>
