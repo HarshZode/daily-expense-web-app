@@ -23,7 +23,7 @@ export class AddMoneyFormComponent implements OnInit {
 
 
   budgetSubmit(new_amount:number){
-    this.budget = this.new_amount
+    this.budget = new_amount
     this.New_budget.emit(this.budget);
     console.log(this.budget);
   }

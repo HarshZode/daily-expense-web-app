@@ -43,26 +43,47 @@ export class DailyExpenseAppComponent implements OnInit {
     }
   }
 
-  budget:number=1000;
-
-  available:number=1000;
+  BudgetObject = new Budget();
+  budget:number=this.BudgetObject.budget;
+  available:number=this.BudgetObject.available;
   budget_info: any;
 
   updateBudget(new_number: number){
     this.budget=new_number;
-    this.available=this.budget;
+    this.BudgetObject.budget=this.budget;
+    this.BudgetObject.available=this.budget;
+    this.available=this.BudgetObject.available;
+    localStorage.setItem("budget", JSON.stringify(this.BudgetObject));
     console.log(this.budget);
     this.btn_newbudget=false;
   }
 
   updateavailable(new_available :number){
     this.available=new_available;
+    this.BudgetObject.available=this.available;
+    localStorage.setItem("budget", JSON.stringify(this.BudgetObject));
     console.log(this.available);
     this.btn_logexpense=false;
   }
-
+  localItem:any;
   constructor() {
+    this.localItem = localStorage.getItem("budget")
 
+    if (this.localItem == null){
+      this.BudgetObject = new Budget();
+      this.BudgetObject.budget = 1000;
+      this.BudgetObject.available = 1000;
+      this.budget = this.BudgetObject.budget
+      this.available = this.BudgetObject.available
+    }
+    else{
+
+      this.BudgetObject = JSON.parse(this.localItem)
+      this.budget = this.BudgetObject.budget
+      this.available = this.BudgetObject.available
+    }
+    
+    
    }
 
   ngOnInit(): void {

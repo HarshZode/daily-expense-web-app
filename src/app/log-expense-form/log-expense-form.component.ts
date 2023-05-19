@@ -15,11 +15,18 @@ export class LogExpenseFormComponent implements OnInit {
  
 
   OnSubmit(amount_spent:number){
+    console.log("hello?")
     console.log(this.amount_spent);
-    this.amount_spent=this.available-this.amount_spent;
-    this.new_available.emit(this.amount_spent)
-    console.log("Log Expense was clicked")
-    console.log(this.amount_spent); 
+    if(amount_spent < 0)
+    {
+      alert("Amount must be positive")
+    }
+    else{
+      this.amount_spent=this.available-amount_spent;
+      this.new_available.emit(this.amount_spent)
+      console.log("Log Expense was clicked")
+      console.log(this.amount_spent); 
+    }
   }
 
   constructor() {
